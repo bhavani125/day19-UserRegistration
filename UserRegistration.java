@@ -9,6 +9,7 @@ public class UserRegistration {
     public static final String namePattern = "[A-Z]{1}[A-Za-z]{2,}";
     public static final String emailPattern ="([0-9A-Za-z])+([-+._][0-9A-Za-z]+)*" + "@([0-9A-Za-z])+[.]([a-zA-Z])+([.][A-Za-z]+)*";
     public static final String numberPattern="^[+0-9]{2}{10}$";
+    public static final String passwordPattern = "[0-9a-zA-Z!@#$%^&*]{8,}";
     //Main method
     public static void main(String[] args)
     {
@@ -39,6 +40,11 @@ public class UserRegistration {
         String phoneNumber = sc.next();
         //calling validateNumberPattern method
         validateNumberPattern(numberPattern,phoneNumber);
+
+        System.out.println("Enter a password");
+        String password = sc.next();
+        //calling validatePassword method
+        validatePassword(passwordPattern,password);
     }
     //Creating validateFirstName method to check
     private void validateFirstName(String pattern, String input) {
@@ -69,6 +75,14 @@ public class UserRegistration {
     }
     //Creating validateNumberPattern method to check
     private void validateNumberPattern(String pattern, String input) {
+        if (Pattern.matches(pattern, input)) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Invalid");
+        }
+    }
+    //Creating validatePassword method to check
+    private void validatePassword(String pattern, String input) {
         if (Pattern.matches(pattern, input)) {
             System.out.println("Valid");
         } else {
