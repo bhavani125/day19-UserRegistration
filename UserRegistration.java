@@ -45,6 +45,12 @@ public class UserRegistration {
         String password = sc.next();
         //calling validatePassword method
         validatePassword(passwordPattern,password);
+
+        System.out.println("Enter the password atleast one upperCase");
+        String password1 = sc.next();
+        //calling validatePassword method
+        validatePassword(passwordPattern,password);
+
     }
     //Creating validateFirstName method to check
     private void validateFirstName(String pattern, String input) {
