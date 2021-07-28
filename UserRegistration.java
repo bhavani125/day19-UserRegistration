@@ -7,6 +7,8 @@ public class UserRegistration {
 
     Scanner sc = new Scanner(System.in);
     public static final String namePattern = "[A-Z]{1}[A-Za-z]{2,}";
+    public static final String emailPattern ="([0-9A-Za-z])+([-+._][0-9A-Za-z]+)*" + "@([0-9A-Za-z])+[.]([a-zA-Z])+([.][A-Za-z]+)*";
+
     //Main method
     public static void main(String[] args)
     {
@@ -24,6 +26,9 @@ public class UserRegistration {
         System.out.println("Enter last name ");
         String lastName = sc.next();
         validateLastName(namePattern,firstName);
+        System.out.println("Enter email id ");
+        String emailId = sc.next();
+        validateFirstName(emailPattern,emailId);
     }
     //Creating validateFirstName method to check
     private void validateFirstName(String pattern, String input) {
@@ -41,5 +46,17 @@ public class UserRegistration {
         } else {
                 System.out.println("Invalid");
             }
+    }
+    //Creating validateEmailId method to check
+    private void validateEmailId(String pattern, String input)
+    {
+        if(Pattern.matches(pattern, input))
+        {
+            System.out.println("Valid");
+        }
+        else
+        {
+            System.out.println("Invalid");
+        }
     }
 }
