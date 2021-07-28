@@ -8,7 +8,7 @@ public class UserRegistration {
     Scanner sc = new Scanner(System.in);
     public static final String namePattern = "[A-Z]{1}[A-Za-z]{2,}";
     public static final String emailPattern ="([0-9A-Za-z])+([-+._][0-9A-Za-z]+)*" + "@([0-9A-Za-z])+[.]([a-zA-Z])+([.][A-Za-z]+)*";
-
+    public static final String numberPattern="^[+0-9]{2}{10}$";
     //Main method
     public static void main(String[] args)
     {
@@ -22,13 +22,23 @@ public class UserRegistration {
     {
         System.out.println("Enter first name ");
         String firstName = sc.next();
+        //calling validateFirstName method
         validateFirstName(namePattern,firstName);
+
         System.out.println("Enter last name ");
         String lastName = sc.next();
-        validateLastName(namePattern,firstName);
+        //calling validateLastName method
+        validateLastName(namePattern,lastName);
+
         System.out.println("Enter email id ");
         String emailId = sc.next();
-        validateFirstName(emailPattern,emailId);
+        //calling validateEmailId method
+        validateEmailId(emailPattern,emailId);
+
+        System.out.println("Enter phoneNumber");
+        String phoneNumber = sc.next();
+        //calling validateNumberPattern method
+        validateNumberPattern(numberPattern,phoneNumber);
     }
     //Creating validateFirstName method to check
     private void validateFirstName(String pattern, String input) {
@@ -53,9 +63,15 @@ public class UserRegistration {
         if(Pattern.matches(pattern, input))
         {
             System.out.println("Valid");
+        } else {
+            System.out.println("Invalid");
         }
-        else
-        {
+    }
+    //Creating validateNumberPattern method to check
+    private void validateNumberPattern(String pattern, String input) {
+        if (Pattern.matches(pattern, input)) {
+            System.out.println("Valid");
+        } else {
             System.out.println("Invalid");
         }
     }
